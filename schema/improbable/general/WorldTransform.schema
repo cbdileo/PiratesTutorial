@@ -1,5 +1,11 @@
 package improbable.general;
 
+import "improbable/core/Nothing.schema";
+
+type ControlRequest {
+	string action = 1;
+}
+
 component WorldTransform {
     // Schema file ID, unique within the project
     id = 1003;
@@ -7,4 +13,6 @@ component WorldTransform {
 	// Entity's true transform within the simulation
     EntityPosition position = 1;
     uint32 rotation = 2;
+	command ControlRequest take_control returns improbable.core.Nothing;
+	Coordinates trackTo = 3;
 }

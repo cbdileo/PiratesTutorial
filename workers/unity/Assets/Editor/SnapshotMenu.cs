@@ -21,6 +21,7 @@ public class SnapshotMenu : MonoBehaviour
         
         snapshotEntities.Add(new EntityId(currentEntityId++), TerrainEntityTemplate.GenerateTerrainSnapshotEntityTemplate());
         snapshotEntities.Add(new EntityId(currentEntityId++), PlayerSpawnerEntityTemplate.GeneratePlayerSpawnerSnapshotEntityTemplate());
+        snapshotEntities.Add(new EntityId(currentEntityId++), CrateEntityTemplate.GenerateCrateEntityTemplate());
 
         SaveSnapshot(snapshotEntities);
     }

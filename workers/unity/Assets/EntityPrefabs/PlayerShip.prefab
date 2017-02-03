@@ -39,6 +39,7 @@ GameObject:
   - 114: {fileID: 114000011675452572}
   - 114: {fileID: 114000013195787224}
   - 114: {fileID: 114000013824945544}
+  - 65: {fileID: 65000011799193986}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -608,6 +609,18 @@ Transform:
   - {fileID: 454740}
   m_Father: {fileID: 421518}
   m_RootOrder: 1
+--- !u!65 &65000011799193986
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1522636, y: 4.023508, z: 5.6543527}
+  m_Center: {x: 0.031089306, y: 1.511754, z: 0.4885757}
 --- !u!111 &111000010247042210
 Animation:
   m_ObjectHideFlags: 1

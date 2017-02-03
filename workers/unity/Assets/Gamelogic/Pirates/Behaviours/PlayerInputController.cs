@@ -1,5 +1,8 @@
+using Improbable;
+using Improbable.General;
 using Improbable.Ship;
 using Improbable.Unity;
+using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 using UnityEngine;
 
@@ -21,6 +24,24 @@ namespace Assets.Gamelogic.Pirates.Behaviours
             ShipControlsWriter.Send(new ShipControls.Update()
                 .SetTargetSpeed(Mathf.Clamp01(Input.GetAxis("Vertical")))
                 .SetTargetSteering(Input.GetAxis("Horizontal")));
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if(other.tag == "Crate")
+            {
+                GainControl(other.gameObject.EntityId());
+            }
+        }
+
+        public void GainControl(EntityId entityId)
+        {
+            SpatialOS.Commands.SendCommand(ShipControlsWriter, WorldTransform.Commands.TakeControl.Descriptor, new ControlRequest("gain"), entityId, _ => { });
+        }
+
+        public void ReleaseControl(EntityId entityId)
+        {
+            SpatialOS.Commands.SendCommand(ShipControlsWriter, WorldTransform.Commands.TakeControl.Descriptor, new ControlRequest("release"), entityId, _ => { });
         }
     }
 }

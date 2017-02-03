@@ -1,0 +1,24 @@
+
+Ğ
+'improbable/player/PlayerLifecycle.protoschema.improbable.playerimprobable/entity_state.proto"f
+DeletePlayerRequestO
+field1_player_entity_id (BÂóplayer_entity_idèóRfield1PlayerEntityId"
+DeletePlayerResponse"c
+HeartbeatRequestO
+field1_sender_entity_id (BÂósender_entity_idèóRfield1SenderEntityId"
+HeartbeatResponse"Á
+PlayerLifecycleDataf
+ field1_current_missed_heartbeats (BÂócurrent_missed_heartbeatsRfield1CurrentMissedHeartbeatsZ
+field2_max_missed_heartbeats (BÂómax_missed_heartbeatsRfield2MaxMissedHeartbeatsf
+ field3_player_heartbeat_interval (BÂóplayer_heartbeat_intervalRfield3PlayerHeartbeatInterval"
+PlayerLifecycle
+EventsÄ
+Commandsp
+command_delete_player_request (2-.schema.improbable.player.DeletePlayerRequestRcommandDeletePlayerRequests
+command_delete_player_response (2..schema.improbable.player.DeletePlayerResponseRcommandDeletePlayerResponsef
+command_heartbeat_request (2*.schema.improbable.player.HeartbeatRequestRcommandHeartbeatRequesti
+command_heartbeat_response (2+.schema.improbable.player.HeartbeatResponseRcommandHeartbeatResponse2
+component_extension.schema.improbable.EntityStateî (2-.schema.improbable.player.PlayerLifecycleDataRcomponentExtension2z
+event_extension.schema.improbable.EntityEventî (20.schema.improbable.player.PlayerLifecycle.EventsReventExtension2‚
+command_extension .schema.improbable.EntityCommandî (22.schema.improbable.player.PlayerLifecycle.CommandsRcommandExtension:*Âó&
+!improbable.player.PlayerLifecycleîBBPlayerLifecycleOuterClass

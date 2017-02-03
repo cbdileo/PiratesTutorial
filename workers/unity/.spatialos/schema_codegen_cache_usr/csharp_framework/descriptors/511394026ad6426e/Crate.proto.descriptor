@@ -1,0 +1,12 @@
+
+—
+improbable/crate/Crate.protoschema.improbable.crateimprobable/entity_state.proto"
+	CrateData"ž
+Crate
+Events
+
+Commands2t
+component_extension.schema.improbable.EntityState÷ (2".schema.improbable.crate.CrateDataRcomponentExtension2o
+event_extension.schema.improbable.EntityEvent÷ (2%.schema.improbable.crate.Crate.EventsReventExtension2w
+command_extension .schema.improbable.EntityCommand÷ (2'.schema.improbable.crate.Crate.CommandsRcommandExtension:Âó
+improbable.crate.Crate÷BBCrateOuterClass
