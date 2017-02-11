@@ -14,5 +14,4 @@ component WorldTransform {
     EntityPosition position = 1;
     uint32 rotation = 2;
 	command ControlRequest take_control returns improbable.core.Nothing;
-	Coordinates trackTo = 3;
 }

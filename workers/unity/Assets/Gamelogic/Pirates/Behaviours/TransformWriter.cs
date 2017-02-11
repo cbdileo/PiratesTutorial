@@ -62,17 +62,21 @@ namespace Assets.Gamelogic.Pirates.Behaviours
                 Debug.Log("Setting entity " + entityId + " to be controlled by worker " + workerId);
 
                 Entity playerEntity = result.Response.Value.Entities.First.Value.Value;
-                Debug.Log("Has authority over EntityAcl " + playerEntity.HasAuthority<EntityAcl>());
-                Debug.Log("Has authority over WorldTransform " + playerEntity.HasAuthority<WorldTransform>());
-                Debug.Log("Has authority over Crate " + playerEntity.HasAuthority<Crate>());
 
-                Acl acl = Acl.GenerateClientAuthoritativeAcl(playerEntity, workerId);
+                // Define the worker claims
+                var clientClaim = new WorkerClaim(new List<WorkerClaimAtom> { new WorkerClaimAtom("visual") });
+                var specificClientPredicate = Acl.MakePredicate(CommonClaims.SpecificClient(workerId));
 
-                playerEntity.SetAcl(acl);
-                Debug.Log("Has authority over after SetACL " + playerEntity.HasAuthority<EntityAcl>());
-                Debug.Log("Has authority over EntityAcl after SetACL" + playerEntity.HasAuthority<EntityAcl>());
-                Debug.Log("Has authority over WorldTransform after SetACL" + playerEntity.HasAuthority<WorldTransform>());
-                Debug.Log("Has authority over Crate after SetACL" + playerEntity.HasAuthority<Crate>());
+                // Define the two worker predicates
+                var fsimOrClientPredicate = new WorkerPredicate(new List<WorkerClaim> { clientClaim });
+
+                var readPermissions = fsimOrClientPredicate;
+                var writePermissions = new Map<uint, WorkerPredicate>();
+
+                writePermissions.Add(EntityAcl.ComponentId, specificClientPredicate);
+                var componentAcl = new ComponentAcl(writePermissions);
+
+                playerEntity.Add(new EntityAcl.Data(new EntityAclData(readPermissions, componentAcl)));
             });
         }
 
