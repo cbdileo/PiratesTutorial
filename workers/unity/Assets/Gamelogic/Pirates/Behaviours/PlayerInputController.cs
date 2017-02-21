@@ -30,12 +30,15 @@ namespace Assets.Gamelogic.Pirates.Behaviours
         {
             if(other.tag == "Crate")
             {
+                Mover mover = other.GetComponent<Mover>();
+                mover.trackTo = transform;
                 GainControl(other.gameObject.EntityId());
             }
         }
 
         public void GainControl(EntityId entityId)
         {
+            Debug.Log("GAINING CONTROL");
             SpatialOS.Commands.SendCommand(ShipControlsWriter, WorldTransform.Commands.TakeControl.Descriptor, new ControlRequest("gain"), entityId, _ => { });
         }
 

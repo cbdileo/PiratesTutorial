@@ -33,6 +33,7 @@ namespace Assets.Gamelogic.Pirates.Behaviours
 
         private void CommandReceiver_OnTakeControl(ResponseHandle<WorldTransform.Commands.TakeControl, ControlRequest, Nothing> obj)
         {
+            Debug.Log("RECEIVED COMMAND " + obj.Request.action);
             if(obj.Request.action == "release")
             {
                 ReleaseControl(WorldTransformWriter.EntityId);
@@ -62,21 +63,29 @@ namespace Assets.Gamelogic.Pirates.Behaviours
                 Debug.Log("Setting entity " + entityId + " to be controlled by worker " + workerId);
 
                 Entity playerEntity = result.Response.Value.Entities.First.Value.Value;
+                playerEntity.Add(new Crate.Data(new CrateData()));
+                playerEntity.Add(new WorldTransform.Data(new WorldTransformData(new Coordinates(1, 6, 9), 0)));
 
                 // Define the worker claims
+                var fsimClaim = new WorkerClaim(new List<WorkerClaimAtom> { new WorkerClaimAtom("physics") });
                 var clientClaim = new WorkerClaim(new List<WorkerClaimAtom> { new WorkerClaimAtom("visual") });
                 var specificClientPredicate = Acl.MakePredicate(CommonClaims.SpecificClient(workerId));
 
-                // Define the two worker predicates
                 var fsimOrClientPredicate = new WorkerPredicate(new List<WorkerClaim> { clientClaim });
+                var fsimOnlyPredicate = new WorkerPredicate(new List<WorkerClaim> { fsimClaim });
 
                 var readPermissions = fsimOrClientPredicate;
                 var writePermissions = new Map<uint, WorkerPredicate>();
 
-                writePermissions.Add(EntityAcl.ComponentId, specificClientPredicate);
+                writePermissions.Add(WorldTransform.ComponentId, specificClientPredicate);
+                writePermissions.Add(Crate.ComponentId, specificClientPredicate);
+                writePermissions.Add(EntityAcl.ComponentId, fsimOnlyPredicate);
                 var componentAcl = new ComponentAcl(writePermissions);
-
-                playerEntity.Add(new EntityAcl.Data(new EntityAclData(readPermissions, componentAcl)));
+                
+                EntityAcl.Data acl = new EntityAcl.Data(new EntityAclData(readPermissions, componentAcl));
+                // Tried to do this as well
+                //playerEntity.Add(new EntityAcl.Data(new EntityAclData(readPermissions, componentAcl)));
+                playerEntity.Update(acl.ToUpdate());
             });
         }
 

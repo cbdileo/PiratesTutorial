@@ -29,6 +29,8 @@ public class CrateEntityTemplate : MonoBehaviour
         var writePermissions = new Map<uint, WorkerPredicate>();
 
         writePermissions.Add(EntityAcl.ComponentId, fsimOnlyPredicate);
+        writePermissions.Add(Crate.ComponentId, fsimOnlyPredicate);
+        writePermissions.Add(WorldTransform.ComponentId, fsimOnlyPredicate);
         var componentAcl = new ComponentAcl(writePermissions);
 
         crate.Add(new EntityAcl.Data(new EntityAclData(readPermissions, componentAcl)));
