@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawner
   - Cannonball
+  - Crate
   layers:
   - Default
   - TransparentFX
