@@ -1,5 +1,8 @@
+using Improbable;
+using Improbable.General;
 using Improbable.Ship;
 using Improbable.Unity;
+using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 using UnityEngine;
 

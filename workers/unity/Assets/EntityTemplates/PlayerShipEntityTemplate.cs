@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Improbable;
+using Improbable.Collections;
+using Improbable.Collections.Internal;
+using UnityEngine;
 using Improbable.General;
 using Improbable.Math;
 using Improbable.Player;
@@ -18,13 +21,15 @@ namespace Assets.EntityTemplates
             playerEntityTemplate.Add(new WorldTransform.Data(new WorldTransformData(initialPosition, 0)));
             playerEntityTemplate.Add(new PlayerLifecycle.Data(new PlayerLifecycleData(0, 3, 10)));
             playerEntityTemplate.Add(new ShipControls.Data(new ShipControlsData(0, 0)));
+            playerEntityTemplate.Add(new Handling.Data(null));
 
             // Grant component access permissions
             var acl = Acl.Build()
                 .SetReadAccess(CommonPredicates.PhysicsOrVisual)
                 .SetWriteAccess<WorldTransform>(CommonPredicates.SpecificClientOnly(clientWorkerId))
                 .SetWriteAccess<ShipControls>(CommonPredicates.SpecificClientOnly(clientWorkerId))
-                .SetWriteAccess<PlayerLifecycle>(CommonPredicates.PhysicsOnly);
+                .SetWriteAccess<PlayerLifecycle>(CommonPredicates.PhysicsOnly)
+                .SetWriteAccess<Handling>(CommonPredicates.SpecificClientOnly(clientWorkerId));
             playerEntityTemplate.SetAcl(acl);
 
             return playerEntityTemplate;

@@ -27,6 +27,20 @@ namespace Assets.Gamelogic.Pirates.Behaviours
             WorldTransformReader.ComponentUpdated -= OnComponentUpdated;
         }
 
+
+        /* Update position from WorldTransform component unless this is the client which is currently
+         * carrying the crate (in which case we don't need to read the position/rotation since
+         * we're setting it). 
+         */
+        void Update()
+        {
+            if (!WorldTransformReader.HasAuthority)
+            {
+                transform.position = WorldTransformReader.Data.position.ToVector3();
+                transform.rotation = Quaternion.Euler(0, WorldTransformReader.Data.rotation,0);
+            }
+        }
+
         // Callback for whenever one or more property of the WorldTransform component is updated
         void OnComponentUpdated(WorldTransform.Update update)
         {

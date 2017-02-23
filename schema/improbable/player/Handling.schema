@@ -1,0 +1,8 @@
+package improbable.player;
+
+component Handling {
+    id = 1101;
+    option queryable = false;
+
+    option<EntityId> held_entity = 1;
+}

@@ -1,0 +1,6 @@
+package improbable.crate;
+
+component Crate {
+    // Schema file ID, unique within the project
+    id = 1015;
+}

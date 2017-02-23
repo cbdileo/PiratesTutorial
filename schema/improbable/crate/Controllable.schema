@@ -1,0 +1,13 @@
+package improbable.crate;
+
+import "improbable/core/Nothing.schema";
+
+type ControlRequest {
+	string action = 1;
+}
+
+component Controllable {
+    id = 1103;
+
+    command ControlRequest take_control returns improbable.core.Nothing;
+}
