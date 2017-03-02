@@ -1,0 +1,14 @@
+
+§
+'improbable/general/WorldTransform.protoschema.improbable.generalimprobable/entity_state.proto!improbable/math/coordinates.proto"«
+WorldTransformData^
+field1_position (2#.schema.improbable.math.CoordinatesBÂópositionÐóRfield1Position5
+field2_rotation (BÂórotationRfield2Rotation"Ô
+WorldTransform
+Events
+
+Commands2
+component_extension.schema.improbable.EntityStateë (2-.schema.improbable.general.WorldTransformDataRcomponentExtension2z
+event_extension.schema.improbable.EntityEventë (20.schema.improbable.general.WorldTransform.EventsReventExtension2‚
+command_extension .schema.improbable.EntityCommandë (22.schema.improbable.general.WorldTransform.CommandsRcommandExtension:*Âó&
+!improbable.general.WorldTransformëBBWorldTransformOuterClass

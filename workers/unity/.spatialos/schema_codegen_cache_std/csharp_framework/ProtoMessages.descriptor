@@ -1,0 +1,28 @@
+
+°	
+!improbable/standard_library.protoschema.improbableimprobable/entity_state.proto"@
+WorkerClaimAtom-
+field1_name (	BÂónameàóR
+field1Name"\
+WorkerClaimM
+field1_atom (2".schema.improbable.WorkerClaimAtomBÂóatomR
+field1Atom"_
+WorkerPredicateL
+field1_claim (2.schema.improbable.WorkerClaimB	ÂóclaimRfield1Claim"Ò
+ComponentAcl^
+field1_write (20.schema.improbable.ComponentAcl.Field1WriteEntryB	ÂówriteRfield1Writeb
+Field1WriteEntry
+key (Rkey8
+value (2".schema.improbable.WorkerPredicateRvalue:8"Ì
+EntityAclDataQ
+field1_read (2".schema.improbable.WorkerPredicateBÂóreadàóR
+field1Readh
+field2_component_acl (2.schema.improbable.ComponentAclBÂócomponent_aclàóRfield2ComponentAcl"–
+	EntityAcl
+Events
+
+Commands2q
+component_extension.schema.improbable.EntityState2 (2 .schema.improbable.EntityAclDataRcomponentExtension2l
+event_extension.schema.improbable.EntityEvent2 (2#.schema.improbable.EntityAcl.EventsReventExtension2t
+command_extension .schema.improbable.EntityCommand2 (2%.schema.improbable.EntityAcl.CommandsRcommandExtension:Âó
+improbable.EntityAcl2BBStandardLibraryOuterClass

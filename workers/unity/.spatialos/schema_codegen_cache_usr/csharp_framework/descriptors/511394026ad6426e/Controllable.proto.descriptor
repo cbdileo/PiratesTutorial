@@ -1,0 +1,16 @@
+
+Ä
+#improbable/crate/Controllable.protoschema.improbable.crateimprobable/entity_state.protoimprobable/core/Nothing.proto"A
+ControlRequest/
+field1_action (	B
+¬ÛactionRfield1Action"
+ControllableData"ê
+Controllable
+Eventsÿ
+Commandsh
+command_take_control_request (2'.schema.improbable.crate.ControlRequestRcommandTakeControlRequestb
+command_take_control_response (2.schema.improbable.core.NothingRcommandTakeControlResponse2{
+component_extension.schema.improbable.EntityStateœ (2).schema.improbable.crate.ControllableDataRcomponentExtension2v
+event_extension.schema.improbable.EntityEventœ (2,.schema.improbable.crate.Controllable.EventsReventExtension2~
+command_extension .schema.improbable.EntityCommandœ (2..schema.improbable.crate.Controllable.CommandsRcommandExtension:&¬Û"
+improbable.crate.ControllableœBBControllableOuterClass
