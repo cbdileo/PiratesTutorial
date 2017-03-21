@@ -1,0 +1,12 @@
+
+³
+ improbable/terrain/Terrain.protoschema.improbable.terrainimprobable/entity_state.proto"
+TerrainData"°
+Terrain
+Events
+
+Commands2x
+component_extension.schema.improbable.EntityStateé (2&.schema.improbable.terrain.TerrainDataRcomponentExtension2s
+event_extension.schema.improbable.EntityEventé (2).schema.improbable.terrain.Terrain.EventsReventExtension2{
+command_extension .schema.improbable.EntityCommandé (2+.schema.improbable.terrain.Terrain.CommandsRcommandExtension:#Âó
+improbable.terrain.TerrainéBBTerrainOuterClass
