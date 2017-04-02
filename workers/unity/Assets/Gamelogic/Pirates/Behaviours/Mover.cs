@@ -2,7 +2,6 @@ using UnityEngine;
 using Improbable.General;
 using Improbable.Unity.Visualizer;
 using Improbable.Unity;
-using UnityEditor;
 
 namespace Assets.Gamelogic.Pirates.Behaviours
 {
@@ -11,6 +10,7 @@ namespace Assets.Gamelogic.Pirates.Behaviours
     {
         [Require]
         private WorldTransform.Writer WorldTransformWriter;
+        public CreateMoreCrates crateCreator;
 
         public Transform trackTo;
         private Quaternion newRotation;
