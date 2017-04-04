@@ -2,7 +2,6 @@ using UnityEngine;
 using Improbable.General;
 using Improbable.Unity.Visualizer;
 using Improbable.Unity;
-using UnityEditor;
 
 namespace Assets.Gamelogic.Pirates.Behaviours
 {
@@ -11,24 +10,25 @@ namespace Assets.Gamelogic.Pirates.Behaviours
     {
         [Require]
         private WorldTransform.Writer WorldTransformWriter;
+        public CreateMoreCrates crateCreator;
 
         public Transform trackTo;
         private Quaternion newRotation;
 
-        void OnEnable()
-        {
-            WorldTransformWriter.ComponentUpdated += WorldTransformWriter_ComponentUpdated;
-        }
+        //void OnEnable()
+        //{
+        //    WorldTransformWriter.ComponentUpdated += WorldTransformWriter_ComponentUpdated;
+        //}
 
-        void OnDisable()
-        {
-            WorldTransformWriter.ComponentUpdated -= WorldTransformWriter_ComponentUpdated;
-        }
+        //void OnDisable()
+        //{
+        //    WorldTransformWriter.ComponentUpdated -= WorldTransformWriter_ComponentUpdated;
+        //}
 
-        private void WorldTransformWriter_ComponentUpdated(WorldTransform.Update obj)
-        {
-            Debug.Log("WorldTransformWriter_ComponentUpdated!!");
-        }
+        //private void WorldTransformWriter_ComponentUpdated(WorldTransform.Update obj)
+        //{
+        //    Debug.Log("WorldTransformWriter_ComponentUpdated!!");
+        //}
 
         void Update()
         {

@@ -6,6 +6,7 @@ using Improbable.Worker;
 using UnityEngine;
 using JetBrains.Annotations;
 using UnityEditor;
+using Improbable.Math;
 
 public class SnapshotMenu : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class SnapshotMenu : MonoBehaviour
         
         snapshotEntities.Add(new EntityId(currentEntityId++), TerrainEntityTemplate.GenerateTerrainSnapshotEntityTemplate());
         snapshotEntities.Add(new EntityId(currentEntityId++), PlayerSpawnerEntityTemplate.GeneratePlayerSpawnerSnapshotEntityTemplate());
-        snapshotEntities.Add(new EntityId(currentEntityId++), CrateEntityTemplate.GenerateCrateEntityTemplate());
+        snapshotEntities.Add(new EntityId(currentEntityId++), CrateEntityTemplate.GenerateCrateEntityTemplate(new Coordinates(1, 6, 9)));
 
         SaveSnapshot(snapshotEntities);
     }

@@ -11,11 +11,11 @@ using Improbable.Collections;
 
 public class CrateEntityTemplate : MonoBehaviour
 {
-    public static SnapshotEntity GenerateCrateEntityTemplate()
+    public static SnapshotEntity GenerateCrateEntityTemplate(Coordinates coord)
     {
         var crate = new SnapshotEntity { Prefab = "Crate" };
         crate.Add(new Crate.Data(new CrateData()));
-        crate.Add(new WorldTransform.Data(new WorldTransformData(new Coordinates(1, 6, 9), 0)));
+        crate.Add(new WorldTransform.Data(new WorldTransformData(coord, 0)));
         crate.Add(new Controllable.Data());
 
         var permissions = Acl.Build()

@@ -59,6 +59,7 @@ public class ToggleControl : MonoBehaviour
         {
             GetComponent<Rigidbody>().isKinematic = true;
         }
+        GetComponent<SphereCollider>().enabled = true;
     }
 
     public void ReleaseControl(EntityId entityId)
