@@ -15,20 +15,20 @@ namespace Assets.Gamelogic.Pirates.Behaviours
         public Transform trackTo;
         private Quaternion newRotation;
 
-        void OnEnable()
-        {
-            WorldTransformWriter.ComponentUpdated += WorldTransformWriter_ComponentUpdated;
-        }
+        //void OnEnable()
+        //{
+        //    WorldTransformWriter.ComponentUpdated += WorldTransformWriter_ComponentUpdated;
+        //}
 
-        void OnDisable()
-        {
-            WorldTransformWriter.ComponentUpdated -= WorldTransformWriter_ComponentUpdated;
-        }
+        //void OnDisable()
+        //{
+        //    WorldTransformWriter.ComponentUpdated -= WorldTransformWriter_ComponentUpdated;
+        //}
 
-        private void WorldTransformWriter_ComponentUpdated(WorldTransform.Update obj)
-        {
-            Debug.Log("WorldTransformWriter_ComponentUpdated!!");
-        }
+        //private void WorldTransformWriter_ComponentUpdated(WorldTransform.Update obj)
+        //{
+        //    Debug.Log("WorldTransformWriter_ComponentUpdated!!");
+        //}
 
         void Update()
         {

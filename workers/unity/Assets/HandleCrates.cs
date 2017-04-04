@@ -49,7 +49,10 @@ public class HandleCrates : MonoBehaviour
                     Mover mover = entityGameObject.GetComponent<Mover>();
                     mover.trackTo = transform;
                     HandlingWriter.Send(new Handling.Update().SetHeldEntity(entityId));
-                    entityGameObject.AddComponent<CreateMoreCrates>();
+                    if (entityGameObject.GetComponent<CreateMoreCrates>() == null)
+                    {
+                        entityGameObject.AddComponent<CreateMoreCrates>();
+                    }
                 }
             });
     }

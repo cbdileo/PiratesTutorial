@@ -1,6 +1,7 @@
 ﻿using Improbable;
 using Improbable.Crate;
 using Improbable.Math;
+using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 using Improbable.Worker;
@@ -8,11 +9,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[EngineType(EnginePlatform.FSim)]
 public class CreateMoreCrates : MonoBehaviour {
+
     [Require]
     private Crate.Writer CrateWriter;
-
-    bool madePlant = false;
 
     void Update() {
 
@@ -20,6 +21,11 @@ public class CreateMoreCrates : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        if (CrateWriter == null)
+        {
+            Debug.Log("Writer Null");
+            return;
+        }
         if (other != null && other.tag == "Ground")
         {
             Vector3 pos = transform.position;
@@ -29,8 +35,8 @@ public class CreateMoreCrates : MonoBehaviour {
             var createEntityTemplate = CrateEntityTemplate.GenerateCrateEntityTemplate(coord);
 
             // I could never get this to work because CrateWriter was always null 
-            //SpatialOS.Commands.CreateEntity(CrateWriter, "Crate", createEntityTemplate, result =>
-            SpatialOS.WorkerCommands.CreateEntity("Crate", createEntityTemplate, result =>
+            SpatialOS.Commands.CreateEntity(CrateWriter, "Crate", createEntityTemplate, result =>
+            //SpatialOS.WorkerCommands.CreateEntity("Crate", createEntityTemplate, result =>
             {
                 if (result.StatusCode != StatusCode.Success)
                 {
@@ -40,7 +46,8 @@ public class CreateMoreCrates : MonoBehaviour {
             });
 
             EntityId id = gameObject.EntityId();
-            SpatialOS.WorkerCommands.DeleteEntity(id, _ => { });
+            //SpatialOS.WorkerCommands.DeleteEntity(id, _ => { });
+            SpatialOS.Commands.DeleteEntity(CrateWriter, id, _ => { });
         }
     }
 }
